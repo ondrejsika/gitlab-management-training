@@ -112,6 +112,56 @@ sudo EXTERNAL_URL="https://gitlab0.sikademo.com" apt-get install gitlab-ee
 cat /etc/gitlab/initial_root_password
 ```
 
+## Gitlab Backup & Restore
+
+Docs: https://docs.gitlab.com/ee/raketasks/backup_restore.html
+
+## Backup Gitlab
+
+Docs: https://docs.gitlab.com/ee/raketasks/backup_restore.html#back-up-gitlab
+
+```
+sudo gitlab-backup create
+```
+
+Backup is by default in `/var/opt/gitlab/backups`
+
+```terminal
+root@gitlab0:~# ls -la /var/opt/gitlab/backups
+total 320
+drwx------  2 git  root   4096 Aug 30 05:17 .
+drwxr-xr-x 23 root root   4096 Aug 30 05:16 ..
+-rw-------  1 git  git  317440 Aug 30 05:17 1630300669_2021_08_30_14.2.1-ee_gitlab_backup.tar
+```
+
+## Restore Gitlab
+
+Docs: https://docs.gitlab.com/ee/raketasks/backup_restore.html#restore-gitlab
+
+Stop the processes that are connected to the database. Leave the rest of GitLab running:
+
+```
+gitlab-ctl stop puma
+gitlab-ctl stop sidekiq
+# Verify
+gitlab-ctl status
+```
+
+Run restore
+
+```
+gitlab-backup restore BACKUP=1630300669_2021_08_30_14.2.1-ee
+```
+
+Reconfigure, restart and check GitLab:
+
+```
+gitlab-ctl reconfigure
+gitlab-ctl restart
+gitlab-rake gitlab:check SANITIZE=true
+gitlab-rake gitlab:doctor:secrets
+```
+
 ## Resources
 
 ### Terraform
