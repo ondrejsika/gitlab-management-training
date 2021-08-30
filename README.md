@@ -61,9 +61,62 @@ Gitlab is (opensource) collaboration platform for software developers.
 - Monitoring
 - Error Tracking
 
+## Run VM for Gitlab (Terraform)
+
+```terraform
+module "gitlab" {
+  source  = "ondrejsika/ondrejsika-do-droplet/module"
+  version = "1.1.0"
+
+  count = 1
+
+  image = "debian-10-x64"
+  size  = "s-8vcpu-16gb"
+  tf_ssh_keys = [
+    data.digitalocean_ssh_key.ondrejsika.id
+  ]
+  zone_id      = local.sikademo_com_zone_id
+  droplet_name = "gitlab${count.index}"
+  record_name  = "gitlab${count.index}"
+  user_data    = <<EOF
+#cloud-config
+ssh_pwauth: yes
+password: asdfasdf
+chpasswd:
+  expire: false
+EOF
+}
+```
+
+## Install Gitlab
+
+- https://about.gitlab.com/install/
+- https://about.gitlab.com/install/?version=ce
+- https://about.gitlab.com/install/ce-or-ee/
+
+```
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+```
+
+```
+sudo apt-get update
+sudo apt-get install -y curl openssh-server ca-certificates perl
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+sudo EXTERNAL_URL="https://gitlab0.sikademo.com" apt-get install gitlab-ee
+```
+
+### Get `root` password
+
+```
+cat /etc/gitlab/initial_root_password
+```
+
 ## Resources
 
-TODO
+### Terraform
+
+- Terraform VM Module - https://github.com/ondrejsika/terraform-module-ondrejsika-do-droplet
 
 ### Examples
 
