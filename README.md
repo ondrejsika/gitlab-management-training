@@ -185,6 +185,24 @@ After configuration change, you have to run `gitlab-ctl reconfigure`.
 gitlab-ctl reconfigure
 ```
 
+### SMTP
+
+Docs: https://docs.gitlab.com/omnibus/settings/smtp.html
+
+```rb
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['smtp_address'] = 'maildev0.sikademo.com'
+gitlab_rails['smtp_port'] = 25
+gitlab_rails['smtp_domain'] = 'maildev0.sikademo.com'
+gitlab_rails['smtp_tls'] = false
+gitlab_rails['smtp_openssl_verify_mode'] = 'none'
+gitlab_rails['smtp_enable_starttls_auto'] = false
+gitlab_rails['smtp_ssl'] = false
+gitlab_rails['smtp_force_ssl'] = false
+```
+
+See all emails in Maildev: http://maildev0.sikademo.com/#/
+
 ## Settings & Management
 
 ### Global Gitlab Settings
