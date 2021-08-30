@@ -171,6 +171,20 @@ apt update
 apt upgrade
 ```
 
+## Configuration
+
+All configuration is in `/etc/gitlab/gitlab.rb`.
+
+```
+vim /etc/gitlab/gitlab.rb
+```
+
+After configuration change, you have to run `gitlab-ctl reconfigure`.
+
+```
+gitlab-ctl reconfigure
+```
+
 ## Resources
 
 ### Terraform
