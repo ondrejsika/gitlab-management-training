@@ -36,7 +36,15 @@ For sharing links & "secrets".
 
 ## Agenda
 
-TODO
+- What is Gitlab
+- Installation
+- Configuration
+- Backup / Restore
+- User Management
+- Gitlab Projects
+  - Repository
+  - Issues
+  - Wiki
 
 ## Course
 
