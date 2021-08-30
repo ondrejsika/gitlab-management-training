@@ -185,6 +185,119 @@ After configuration change, you have to run `gitlab-ctl reconfigure`.
 gitlab-ctl reconfigure
 ```
 
+## Settings & Management
+
+### Global Gitlab Settings
+
+- Users
+- Groups
+- Projects
+- Jobs (CI)
+- Runners (CI)
+- Gitaly servers (git operations)
+
+### Management
+
+- Users
+- Groups
+- Projects
+
+### Groups
+
+- Create / Edit / Delete
+- Visibility level
+- Subgroups
+- Group settings
+
+### Users
+
+- Edit user settings
+- Impersonation
+- Keys
+- Identities (LDAP, ...)
+
+### Project Components
+
+- Repository
+- Issues
+- Merge Requests
+- Wiki
+- Registry
+- CI / CD
+
+### Git Repository
+
+- Git Repository (SSH & HTTPS access)
+- History
+- Branches / Tags
+- Graph (of Git tree)
+- Contributors, Charts
+
+### Web IDE
+
+- Simple IDE in browser
+- Great for Docs, CI scripts
+- Hot fixes (create new branch with merge request on change)
+- Stage
+- Multiple changed files in single commit
+
+### Issues
+
+- Project / Group view
+- List / Kanban boards view
+- Labels
+- Milestones
+
+#### Labels
+
+- Filters
+- Trackers - Bug, Feature, ...
+- Priority - Low, Medium, High, ...
+- Stages (for Kanban boards) - Todo, Doing, Review, ...
+
+#### Kanban Boards
+
+- Project / Group Kanban board
+- Uses labels as stages
+- Great for agile & sprints
+
+### Merge Requests
+
+- Request for review & merge of branch
+- Created from branch or issue
+- Discussion
+- Approvals
+- CI / CD before merge
+
+#### Setup merging strategy
+
+Project Setting -> General -> Merge Request
+
+### Merge methods (strategies)
+
+- Merge commit (default)
+- Merge commit with semi-linear history
+- Fast-forward merge (I recommend, requires rebase)
+
+### Docker Registry
+
+- Place to store your Docker images
+- Same access policy as project & git repository
+- Required configuration of `gitlab_registry_url` in gitlab.rb
+
+### Wiki
+
+- Supports Markdown
+- Simple project related wiki
+- Git versioned / runs locally using tool Gollum
+
+### Snippets
+
+- Tool for sharing code snippets
+- Supports multiple files
+- Syntax Highlight
+- Discussion
+
 ## Resources
 
 ### Terraform
