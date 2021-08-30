@@ -201,7 +201,31 @@ gitlab_rails['smtp_ssl'] = false
 gitlab_rails['smtp_force_ssl'] = false
 ```
 
+```
+gitlab-ctl reconfigure
+```
+
 See all emails in Maildev: http://maildev0.sikademo.com/#/
+
+### S3 Backup Config
+
+```ruby
+gitlab_rails['backup_upload_connection'] = {
+  'provider' => 'AWS',
+  'aws_access_key_id' => 'admin',
+  'aws_secret_access_key' => 'asdfasdf',
+  'endpoint'              => 'http://minio0.sikademo.com:9000',
+  'path_style' => true
+}
+gitlab_rails['backup_upload_remote_directory'] = 'gitlab-backups'
+```
+
+```
+gitlab-ctl reconfigure
+gitlab-backup create
+```
+
+See backup in Minio: http://minio0.sikademo.com, user: `admin`, password `asdfasdf`
 
 ## Settings & Management
 
