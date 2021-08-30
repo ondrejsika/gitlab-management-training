@@ -298,6 +298,42 @@ Project Setting -> General -> Merge Request
 - Syntax Highlight
 - Discussion
 
+## Workflow
+
+## Merge vs Rebase merge strategy
+
+### Merges (Default)
+
+- `+` No history rewrites
+- `-` Awful & non intuitive history
+
+### Rebase (I recommend & use)
+
+- `+` Single line history - easy to read and understand
+- `-` History rewrites
+- `-` Force pushes (in some cases)
+
+## Gitlab Workflow - Feature, Bug
+
+- Start issue & label it to feature (for features)
+- Start issue & assign developer & label it to bug (for bugs)
+- When task is ready, PM (project manager) moves it into TODO
+- Developer pick ticket and start WIP merge request with branch
+- Fetch repository and make some changes or work in Web IDE
+- Pushes commits to Gitlab
+- Developer remove WIP from Merge Request
+- Someone does code review & CI / CD pipeline runs tests
+- Someone can approve the Merge Request
+- Maintainer (typically who has access to master) merge it
+- After merge, issue will be closed and everything is done
+
+## Gitlab Workflow - Hotfix
+
+- Typically quick fix using Web IDE
+- Select commit to new branch & create Merge Request in Web IDE
+- Do review as fast you can
+- Merge & Deploy
+
 ## Resources
 
 ### Terraform
