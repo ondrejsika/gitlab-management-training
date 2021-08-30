@@ -46,9 +46,20 @@ For sharing links & "secrets".
   - Issues
   - Wiki
 
-## Course
+## Git
 
-TODO
+Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.
+
+## Gitlab
+
+Gitlab is (opensource) collaboration platform for software developers.
+
+- Git repository hosting & management
+- Issue Tracking
+- Wiki
+- CI / CD
+- Monitoring
+- Error Tracking
 
 ## Resources
 
