@@ -325,7 +325,7 @@ Project Setting -> General -> Merge Request
 
 - Place to store your Docker images
 - Same access policy as project & git repository
-- Required configuration of `gitlab_registry_url` in gitlab.rb
+- Required configuration of `registry_external_url` in gitlab.rb
 
 ### Wiki
 
