@@ -162,6 +162,15 @@ gitlab-rake gitlab:check SANITIZE=true
 gitlab-rake gitlab:doctor:secrets
 ```
 
+## Upgrade Gitlab
+
+Docs: https://docs.gitlab.com/ee/update/#linux-packages-omnibus-gitlab
+
+```
+apt update
+apt upgrade
+```
+
 ## Resources
 
 ### Terraform
